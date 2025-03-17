@@ -43,7 +43,8 @@ export default function Home() {
 
       const { x, y } = features[0].geometry;
       window.open(`https://www.google.com/maps/search/?api=1&query=${y},${x}`, '_blank');
-    } catch (err) {
+    } catch (error) {
+      console.error('Error fetching coordinates:', error);
       setError('An error occurred while fetching the coordinates.');
     } finally {
       setLoading(false);
